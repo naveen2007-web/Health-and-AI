@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>HealthPulse | Doctor Dashboard</title>
+
+  <link
+    rel="stylesheet"
+    href="doctor.css"
+  >
+
+</head>
+
+<body>
+
+  <div class="doctor-app">
+
+    <!-- HEADER -->
+
+    <header class="doctor-header">
+
+      <div class="doctor-brand">
+
+        <div class="doctor-logo">
+          HP
+        </div>
+
+        <div>
+          <h1>HealthPulse</h1>
+          <span>
+            Doctor Monitoring Dashboard
+          </span>
+        </div>
+
+      </div>
+
+      <a
+        href="/"
+        class="back-button"
+      >
+        ← Patient Dashboard
+      </a>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main class="doctor-main">
+
+      <section class="doctor-search card">
+
+        <div>
+
+          <h2>
+            Patient Monitoring
+          </h2>
+
+          <p>
+            Enter the Patient ID provided by the patient.
+            Data will only load when access has been approved.
+          </p>
+
+        </div>
+
+
+        <div class="search-row">
+
+          <input
+            id="patientIdInput"
+            type="text"
+            placeholder="Example: HP-ABC123"
+          >
+
+          <button
+            id="loadPatientButton"
+            class="doctor-button primary"
+            type="button"
+          >
+            Load Patient
+          </button>
+
+        </div>
+
+
+        <div
+          id="doctorStatus"
+          class="doctor-status"
+        ></div>
+
+      </section>
+
+
+      <!-- EMPTY STATE -->
+
+      <section
+        id="emptyState"
+        class="card empty-doctor"
+      >
+
+        <div class="empty-icon">
+          🩺
+        </div>
+
+        <h2>
+          No patient loaded
+        </h2>
+
+        <p>
+          Enter an authorized Patient ID above to view
+          shared HealthPulse information.
+        </p>
+
+      </section>
+
+
+      <!-- PATIENT DASHBOARD -->
+
+      <section
+        id="patientDashboard"
+        class="hidden"
+      >
+
+        <!-- PATIENT HEADER -->
+
+        <div class="patient-banner card">
+
+          <div>
+
+            <span class="small-label">
+              Patient
+            </span>
+
+            <h2 id="patientName">
+              Patient
+            </h2>
+
+            <p id="patientMeta">
+              —
+            </p>
+
+          </div>
+
+          <div class="patient-id-box">
+
+            <span>
+              Patient ID
+            </span>
+
+            <strong id="patientIdDisplay">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <!-- SUMMARY -->
+
+        <div class="doctor-stats">
+
+          <div class="doctor-stat card">
+
+            <span>
+              Weight
+            </span>
+
+            <strong id="doctorWeight">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="doctor-stat card">
+
+            <span>
+              Conditions
+            </span>
+
+            <strong id="doctorConditions">
+              None listed
+            </strong>
+
+          </div>
+
+
+          <div class="doctor-stat card">
+
+            <span>
+              Health Readings
+            </span>
+
+            <strong id="doctorReadingCount">
+              0
+            </strong>
+
+          </div>
+
+
+          <div class="doctor-stat card">
+
+            <span>
+              Medicine Reminders
+            </span>
+
+            <strong id="doctorReminderCount">
+              0
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <!-- MEASUREMENTS -->
+
+        <section class="card">
+
+          <div class="card-heading">
+
+            <div>
+              <h2>
+                Latest Health Measurements
+              </h2>
+
+              <p>
+                Most recently recorded values shared
+                by the patient.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div
+            id="measurementCards"
+            class="measurement-grid"
+          ></div>
+
+        </section>
+
+
+        <!-- REMINDERS -->
+
+        <section class="card">
+
+          <div class="card-heading">
+
+            <div>
+              <h2>
+                Medicine Reminders
+              </h2>
+
+              <p>
+                Reminder information shared by the patient.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div
+            id="doctorReminders"
+            class="doctor-list"
+          ></div>
+
+        </section>
+
+
+        <!-- PATIENT INFORMATION -->
+
+        <section class="card">
+
+          <div class="card-heading">
+
+            <div>
+              <h2>
+                Patient Information
+              </h2>
+
+              <p>
+                Profile information authorized by the patient.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div
+            id="patientInfo"
+            class="patient-info-grid"
+          ></div>
+
+        </section>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <script src="doctor.js"></script>
+
+</body>
+
+</html>

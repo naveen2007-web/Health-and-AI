@@ -1,0 +1,957 @@
+/* =========================================================
+   HEALTHPULSE MAIN CSS
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f7fb;
+  color: #172033;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* LOADING */
+
+#loadingScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #f4f7fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-box {
+  text-align: center;
+}
+
+.loading-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  background: #315bea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.loading-spinner {
+  width: 38px;
+  height: 38px;
+  border: 4px solid #dce4ff;
+  border-top-color: #315bea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 15px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* APP */
+
+#app {
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width: 255px;
+  min-width: 255px;
+  min-height: 100vh;
+  background: white;
+  border-right: 1px solid #e3e8f1;
+  padding: 20px 15px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 6px 8px 25px;
+}
+
+.logo-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: #315bea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.logo-subtitle {
+  display: block;
+  color: #64748b;
+  font-size: 10px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-button {
+  border: 0;
+  background: transparent;
+  color: #64748b;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: left;
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nav-button:hover {
+  background: #f1f5ff;
+  color: #315bea;
+}
+
+.nav-button.active {
+  background: #eaf0ff;
+  color: #315bea;
+}
+
+.nav-icon {
+  width: 22px;
+  text-align: center;
+}
+
+.sidebar-footer {
+  margin-top: 25px;
+  border-top: 1px solid #e8edf4;
+  padding: 15px 8px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+/* MAIN */
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  padding: 28px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.page-heading h1 {
+  font-size: 28px;
+  margin-bottom: 3px;
+}
+
+.page-heading p {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  border: 1px solid #d8e0ec;
+  background: white;
+  border-radius: 9px;
+  width: 40px;
+  height: 40px;
+}
+
+/* PAGES */
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* GRIDS */
+
+.grid {
+  display: grid;
+  gap: 18px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* CARDS */
+
+.card {
+  background: white;
+  border: 1px solid #e3e8f1;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 18px rgba(30, 50, 90, 0.04);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.card-header h2 {
+  font-size: 17px;
+}
+
+.card-header p {
+  color: #64748b;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+/* WELCOME */
+
+.welcome-card {
+  background: linear-gradient(135deg, #315bea, #5277ee);
+  color: white;
+  border-radius: 17px;
+  padding: 25px;
+  margin-bottom: 18px;
+}
+
+.welcome-card h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.welcome-card p {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* STATISTICS */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 13px;
+  margin-bottom: 18px;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid #e3e8f1;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.stat-icon {
+  width: 37px;
+  height: 37px;
+  border-radius: 10px;
+  background: #eef2ff;
+  color: #315bea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  color: #64748b;
+  font-size: 11px;
+}
+
+.stat-value {
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.stat-unit {
+  color: #64748b;
+  font-size: 10px;
+}
+
+/* GOALS */
+
+.goal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+}
+
+.goal-card {
+  background: #f8fafc;
+  border: 1px solid #e3e8f1;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.goal-card > span {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.goal-card strong {
+  font-size: 19px;
+}
+
+/* PROGRESS */
+
+.progress-section {
+  margin-top: 12px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  color: #64748b;
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+
+.progress-bar {
+  height: 8px;
+  width: 100%;
+  background: #e9edf4;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: #315bea;
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+
+.progress-fill.green {
+  background: #159b78;
+}
+
+.progress-fill.orange {
+  background: #e59a28;
+}
+
+/* FORMS */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.full {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #344054;
+}
+
+.form-group small {
+  color: #64748b;
+  font-size: 10px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid #d8e0ec;
+  border-radius: 9px;
+  background: white;
+  color: #172033;
+  padding: 11px 12px;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #315bea;
+  box-shadow: 0 0 0 3px rgba(49, 91, 234, 0.1);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* CHECKBOXES */
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #475467;
+  font-size: 12px;
+}
+
+.checkbox-row input {
+  width: auto;
+}
+
+/* BUTTONS */
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 17px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 9px;
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.btn-primary {
+  background: #315bea;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2649c7;
+}
+
+.btn-secondary {
+  background: #eef2f7;
+  color: #344054;
+}
+
+.btn-success {
+  background: #16876d;
+  color: white;
+}
+
+.btn-danger {
+  background: #e05252;
+  color: white;
+}
+
+.btn-warning {
+  background: #e99b2d;
+  color: white;
+}
+
+/* ALERT */
+
+.alert {
+  padding: 11px 13px;
+  border-radius: 9px;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.alert-success {
+  background: #eaf8f3;
+  color: #146c58;
+}
+
+.alert-danger {
+  background: #fff0f0;
+  color: #a23838;
+}
+
+.alert-info {
+  background: #edf3ff;
+  color: #3151a6;
+}
+
+/* CONDITIONS */
+
+.condition-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.condition-chip {
+  background: #eef2ff;
+  color: #3151a6;
+  border-radius: 20px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* NUTRITION */
+
+.nutrition-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+  margin-bottom: 18px;
+}
+
+.nutrition-card {
+  background: white;
+  border: 1px solid #e3e8f1;
+  border-radius: 14px;
+  padding: 17px;
+}
+
+.nutrition-card h4 {
+  color: #64748b;
+  font-size: 11px;
+  margin-bottom: 5px;
+}
+
+.nutrition-card strong {
+  font-size: 21px;
+}
+
+.nutrition-card span {
+  color: #64748b;
+  font-size: 11px;
+}
+
+/* FOOD RESULT */
+
+.food-result {
+  background: #f8fafc;
+  border: 1px solid #e3e8f1;
+  border-radius: 10px;
+  padding: 13px;
+  color: #475467;
+  font-size: 12px;
+}
+
+/* LISTS */
+
+.meal-list,
+.reminder-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.meal-item,
+.list-item,
+.reminder-card {
+  border: 1px solid #e3e8f1;
+  border-radius: 11px;
+  background: white;
+  padding: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.meal-item strong,
+.list-item strong,
+.reminder-card strong {
+  display: block;
+  font-size: 13px;
+}
+
+.meal-item small,
+.list-item small,
+.reminder-card small {
+  display: block;
+  color: #64748b;
+  font-size: 10px;
+  margin-top: 3px;
+}
+
+/* HEALTH MEASUREMENTS */
+
+.measurement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.measurement-card {
+  background: #f8fafc;
+  border: 1px solid #e3e8f1;
+  border-radius: 10px;
+  padding: 13px;
+}
+
+.measurement-card h4 {
+  color: #64748b;
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+
+.measurement-card strong {
+  font-size: 18px;
+}
+
+.measurement-card small {
+  display: block;
+  color: #64748b;
+  font-size: 9px;
+  margin-top: 3px;
+}
+
+/* CALORIE BALANCE */
+
+.calorie-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.calorie-box {
+  border-radius: 13px;
+  padding: 18px;
+  border: 1px solid #e3e8f1;
+}
+
+.calorie-box.in {
+  background: #f0f8f5;
+}
+
+.calorie-box.out {
+  background: #f4f5ff;
+}
+
+.calorie-box span {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.calorie-box strong {
+  font-size: 25px;
+}
+
+/* DOCTOR ACCESS */
+
+.doctor-access {
+  background: #f3f6ff;
+  border: 1px solid #dce5ff;
+  border-radius: 14px;
+  padding: 19px;
+  margin-bottom: 18px;
+}
+
+.doctor-access h3 {
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+
+.doctor-access p {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* BADGES */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 5px 9px;
+  font-size: 10px;
+  font-weight: 700;
+  background: #eef2f7;
+  color: #64748b;
+}
+
+.badge-primary {
+  background: #eaf0ff;
+  color: #315bea;
+}
+
+/* TABLE */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #e3e8f1;
+  border-radius: 11px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 11px 13px;
+  border-bottom: 1px solid #edf0f5;
+  font-size: 11px;
+}
+
+th {
+  background: #f8fafc;
+  color: #475467;
+}
+
+td {
+  color: #344054;
+}
+
+/* EMPTY */
+
+.empty-state {
+  text-align: center;
+  padding: 20px;
+  color: #7a8799;
+  background: #f8fafc;
+  border: 1px dashed #d7dee9;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+/* PROFILE */
+
+.profile-goals {
+  margin-top: 18px;
+}
+
+/* TOAST */
+
+.toast-container {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toast {
+  background: #172033;
+  color: white;
+  border-radius: 9px;
+  padding: 12px 15px;
+  min-width: 240px;
+  font-size: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.toast.success {
+  background: #16876d;
+}
+
+.toast.error {
+  background: #c74343;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1200px) {
+
+  .stat-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .goal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nutrition-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 850px) {
+
+  .sidebar {
+    width: 220px;
+    min-width: 220px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .measurement-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .sidebar {
+    position: fixed;
+    left: -270px;
+    top: 0;
+    transition: left 0.25s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full {
+    grid-column: auto;
+  }
+
+  .checkbox-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .calorie-overview {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .page-heading h1 {
+    font-size: 21px;
+  }
+
+  .stat-grid {
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 12px;
+  }
+
+  .stat-value {
+    font-size: 18px;
+  }
+
+  .goal-grid,
+  .nutrition-summary {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .measurement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+
+  .button-row .btn {
+    width: 100%;
+  }
+
+}
+/* =========================================================
+   HEALTHPULSE NAVIGATION SAFETY FIX
+========================================================= */
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block !important;
+}

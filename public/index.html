@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="HealthPulse personal health monitoring system"
+  >
+
+  <title>HealthPulse | Personal Health Monitor</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     LOADING SCREEN
+     ===================================================== -->
+
+<div id="loadingScreen">
+  <div class="loading-box">
+    <div class="loading-logo">HP</div>
+    <div class="loading-spinner"></div>
+    <h2>HealthPulse</h2>
+    <p>Loading your health dashboard...</p>
+  </div>
+</div>
+
+
+<!-- =====================================================
+     APPLICATION
+     ===================================================== -->
+
+<div id="app" class="hidden">
+
+  <div class="app-shell">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar" id="sidebar">
+
+      <div class="logo">
+        <div class="logo-icon">HP</div>
+
+        <div>
+          <div class="logo-text">HealthPulse</div>
+          <span class="logo-subtitle">
+            Personal Health Monitor
+          </span>
+        </div>
+      </div>
+
+      <nav class="nav">
+
+        <button
+          class="nav-button active"
+          data-page="dashboard"
+        >
+          <span class="nav-icon">⌂</span>
+          Dashboard
+        </button>
+
+        <button
+          class="nav-button"
+          data-page="profile"
+        >
+          <span class="nav-icon">👤</span>
+          Profile & Health
+        </button>
+
+        <button
+          class="nav-button"
+          data-page="nutrition"
+        >
+          <span class="nav-icon">🥗</span>
+          Nutrition
+        </button>
+
+        <button
+          class="nav-button"
+          data-page="activity"
+        >
+          <span class="nav-icon">🏃</span>
+          Activity
+        </button>
+
+        <button
+          class="nav-button"
+          data-page="medicine"
+        >
+          <span class="nav-icon">💊</span>
+          Medicine Reminder
+        </button>
+
+        <button
+          class="nav-button"
+          data-page="history"
+        >
+          <span class="nav-icon">📊</span>
+          Health History
+        </button>
+
+        <button
+          class="nav-button"
+          data-page="doctor"
+        >
+          <span class="nav-icon">🩺</span>
+          Doctor Access
+        </button>
+
+      </nav>
+
+      <div class="sidebar-footer">
+        <strong>HealthPulse</strong>
+        <br>
+        Monitoring and wellness organization system.
+      </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+      <header class="topbar">
+
+        <div class="topbar-left">
+
+          <button
+            class="mobile-menu-btn"
+            id="mobileMenuButton"
+            type="button"
+          >
+            ☰
+          </button>
+
+          <div class="page-heading">
+            <h1 id="pageTitle">
+              Dashboard
+            </h1>
+
+            <p id="pageSubtitle">
+              Your daily health overview
+            </p>
+          </div>
+
+        </div>
+
+        <div class="topbar-actions">
+
+          <span
+            class="badge badge-primary"
+            id="patientIdBadge"
+          >
+            No Patient ID
+          </span>
+
+        </div>
+
+      </header>
+
+
+      <!-- =================================================
+           DASHBOARD
+           ================================================= -->
+
+      <section
+        class="page active"
+        id="page-dashboard"
+      >
+
+        <div class="welcome-card">
+
+          <h2>
+            Welcome, <span id="dashboardName">Care Seeker</span>
+          </h2>
+
+          <p>
+            Keep track of your nutrition, activity and health
+            information in one place.
+          </p>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <div class="stat-grid">
+
+          <div class="stat-card">
+
+            <div class="stat-icon">🔥</div>
+
+            <div class="stat-label">
+              Calories IN
+            </div>
+
+            <div class="stat-value">
+              <span id="dashCaloriesIn">0</span>
+            </div>
+
+            <div class="stat-unit">
+              kcal today
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-icon">🏃</div>
+
+            <div class="stat-label">
+              Calories OUT
+            </div>
+
+            <div class="stat-value">
+              <span id="dashCaloriesOut">0</span>
+            </div>
+
+            <div class="stat-unit">
+              kcal estimated
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-icon">🥚</div>
+
+            <div class="stat-label">
+              Protein
+            </div>
+
+            <div class="stat-value">
+              <span id="dashProtein">0</span>
+              <span class="stat-unit">g</span>
+            </div>
+
+            <div class="stat-unit">
+              daily intake
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-icon">🍚</div>
+
+            <div class="stat-label">
+              Carbs
+            </div>
+
+            <div class="stat-value">
+              <span id="dashCarbs">0</span>
+              <span class="stat-unit">g</span>
+            </div>
+
+            <div class="stat-unit">
+              daily intake
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-icon">🥑</div>
+
+            <div class="stat-label">
+              Fat
+            </div>
+
+            <div class="stat-value">
+              <span id="dashFat">0</span>
+              <span class="stat-unit">g</span>
+            </div>
+
+            <div class="stat-unit">
+              daily intake
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-icon">⏱</div>
+
+            <div class="stat-label">
+              Activity
+            </div>
+
+            <div class="stat-value">
+              <span id="dashActivity">0</span>
+            </div>
+
+            <div class="stat-unit">
+              minutes today
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- DAILY GOALS -->
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Daily Nutrition Goals</h2>
+
+              <p>
+                Approximate targets calculated from your profile.
+              </p>
+            </div>
+
+            <span class="badge badge-primary">
+              Estimated
+            </span>
+
+          </div>
+
+
+          <div class="goal-grid">
+
+            <div class="goal-card">
+
+              <span>Calories</span>
+
+              <strong id="goalCalories">
+                —
+              </strong>
+
+              <div class="progress-section">
+
+                <div class="progress-label">
+                  <span>Progress</span>
+                  <span id="calorieProgressText">0%</span>
+                </div>
+
+                <div class="progress-bar">
+                  <div
+                    class="progress-fill"
+                    id="calorieProgress"
+                  ></div>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="goal-card">
+
+              <span>Protein</span>
+
+              <strong>
+                <span id="goalProtein">—</span> g
+              </strong>
+
+              <div class="progress-section">
+
+                <div class="progress-label">
+                  <span>Progress</span>
+                  <span id="proteinProgressText">0%</span>
+                </div>
+
+                <div class="progress-bar">
+                  <div
+                    class="progress-fill green"
+                    id="proteinProgress"
+                  ></div>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="goal-card">
+
+              <span>Carbohydrates</span>
+
+              <strong>
+                <span id="goalCarbs">—</span> g
+              </strong>
+
+              <div class="progress-section">
+
+                <div class="progress-label">
+                  <span>Progress</span>
+                  <span id="carbsProgressText">0%</span>
+                </div>
+
+                <div class="progress-bar">
+                  <div
+                    class="progress-fill orange"
+                    id="carbsProgress"
+                  ></div>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="goal-card">
+
+              <span>Fat</span>
+
+              <strong>
+                <span id="goalFat">—</span> g
+              </strong>
+
+              <div class="progress-section">
+
+                <div class="progress-label">
+                  <span>Progress</span>
+                  <span id="fatProgressText">0%</span>
+                </div>
+
+                <div class="progress-bar">
+                  <div
+                    class="progress-fill"
+                    id="fatProgress"
+                  ></div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="grid grid-2">
+
+          <!-- HEALTH -->
+
+          <div class="card">
+
+            <div class="card-header">
+
+              <div>
+                <h2>Health Overview</h2>
+
+                <p>
+                  Latest recorded measurements
+                </p>
+              </div>
+
+            </div>
+
+            <div
+              class="measurement-grid"
+              id="dashboardMeasurements"
+            >
+              <div class="empty-state">
+                No measurements recorded yet.
+              </div>
+            </div>
+
+          </div>
+
+
+          <!-- CONDITIONS -->
+
+          <div class="card">
+
+            <div class="card-header">
+
+              <div>
+                <h2>Health Conditions</h2>
+
+                <p>
+                  Optional information provided by you
+                </p>
+              </div>
+
+            </div>
+
+            <div
+              class="condition-list"
+              id="dashboardConditions"
+            >
+              <div class="empty-state">
+                No conditions added.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Today's Balance</h2>
+
+              <p>
+                Food intake and estimated activity expenditure.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="calorie-overview">
+
+            <div class="calorie-box in">
+
+              <span>Calories IN</span>
+
+              <strong>
+                <span id="balanceIn">0</span> kcal
+              </strong>
+
+            </div>
+
+            <div class="calorie-box out">
+
+              <span>Calories OUT</span>
+
+              <strong>
+                <span id="balanceOut">0</span> kcal
+              </strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           PROFILE
+           ================================================= -->
+
+      <section
+        class="page"
+        id="page-profile"
+      >
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Personal Health Profile</h2>
+
+              <p>
+                Enter the information you want HealthPulse
+                to use for monitoring and estimates.
+              </p>
+            </div>
+
+          </div>
+
+
+          <form id="profileForm">
+
+            <div class="form-grid">
+
+              <div class="form-group">
+
+                <label for="profileName">
+                  Name *
+                </label>
+
+                <input
+                  id="profileName"
+                  type="text"
+                  placeholder="Enter your name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="profileAge">
+                  Age
+                </label>
+
+                <input
+                  id="profileAge"
+                  type="number"
+                  min="1"
+                  max="120"
+                  placeholder="Age"
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="profileGender">
+                  Gender
+                </label>
+
+                <select id="profileGender">
+
+                  <option value="">
+                    Select
+                  </option>
+
+                  <option value="Male">
+                    Male
+                  </option>
+
+                  <option value="Female">
+                    Female
+                  </option>
+
+                  <option value="Other">
+                    Other
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="profileHeight">
+                  Height (cm)
+                </label>
+
+                <input
+                  id="profileHeight"
+                  type="number"
+                  min="50"
+                  max="250"
+                  step="0.1"
+                  placeholder="Height"
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="profileWeight">
+                  Weight (kg)
+                </label>
+
+                <input
+                  id="profileWeight"
+                  type="number"
+                  min="10"
+                  max="300"
+                  step="0.1"
+                  placeholder="Weight"
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="profileActivityLevel">
+                  Activity Level
+                </label>
+
+                <select id="profileActivityLevel">
+
+                  <option value="sedentary">
+                    Sedentary
+                  </option>
+
+                  <option value="light">
+                    Lightly Active
+                  </option>
+
+                  <option
+                    value="moderate"
+                    selected
+                  >
+                    Moderately Active
+                  </option>
+
+                  <option value="active">
+                    Active
+                  </option>
+
+                  <option value="very_active">
+                    Very Active
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="profileGoal">
+                  General Goal
+                </label>
+
+                <select id="profileGoal">
+
+                  <option value="maintenance">
+                    General maintenance
+                  </option>
+
+                  <option value="fitness">
+                    Fitness & activity
+                  </option>
+
+                  <option value="wellness">
+                    General wellness
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="dailyActivityMinutes">
+                  Typical Activity (minutes/day)
+                </label>
+
+                <input
+                  id="dailyActivityMinutes"
+                  type="number"
+                  min="0"
+                  max="1000"
+                  placeholder="Example: 45"
+                >
+
+              </div>
+
+
+              <div class="form-group full">
+
+                <label>
+                  Optional Health Conditions / Medical Problems
+                </label>
+
+                <div class="checkbox-grid">
+
+                  <label class="checkbox-row">
+                    <input
+                      type="checkbox"
+                      name="condition"
+                      value="Diabetes"
+                    >
+                    Diabetes
+                  </label>
+
+                  <label class="checkbox-row">
+                    <input
+                      type="checkbox"
+                      name="condition"
+                      value="Hypertension"
+                    >
+                    Hypertension
+                  </label>
+
+                  <label class="checkbox-row">
+                    <input
+                      type="checkbox"
+                      name="condition"
+                      value="Asthma"
+                    >
+                    Asthma
+                  </label>
+
+                  <label class="checkbox-row">
+                    <input
+                      type="checkbox"
+                      name="condition"
+                      value="Heart condition"
+                    >
+                    Heart condition
+                  </label>
+
+                  <label class="checkbox-row">
+                    <input
+                      type="checkbox"
+                      name="condition"
+                      value="Thyroid condition"
+                    >
+                    Thyroid condition
+                  </label>
+
+                  <label class="checkbox-row">
+                    <input
+                      type="checkbox"
+                      name="condition"
+                      value="Other"
+                    >
+                    Other
+                  </label>
+
+                </div>
+
+                <small>
+                  Optional. This information is for organization
+                  and monitoring and does not provide a diagnosis.
+                </small>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="emergencyContactName">
+                  Emergency Contact Name
+                </label>
+
+                <input
+                  id="emergencyContactName"
+                  type="text"
+                  placeholder="Optional"
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="emergencyEmail">
+                  Emergency Email
+                </label>
+
+                <input
+                  id="emergencyEmail"
+                  type="email"
+                  placeholder="Optional"
+                >
+
+              </div>
+
+
+              <div class="form-group full">
+
+                <label class="checkbox-row">
+
+                  <input
+                    type="checkbox"
+                    id="consentDoctorMonitoring"
+                  >
+
+                  I allow an authorized doctor to view my shared
+                  HealthPulse information when I approve access.
+
+                </label>
+
+              </div>
+
+            </div>
+
+
+            <div
+              id="profileMessage"
+              class="alert hidden"
+            ></div>
+
+
+            <div class="button-row">
+
+              <button
+                class="btn btn-primary"
+                type="submit"
+              >
+                Save Profile
+              </button>
+
+              <button
+                class="btn btn-secondary"
+                type="button"
+                id="calculateGoalsButton"
+              >
+                Calculate Goals
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Estimated Daily Targets</h2>
+
+              <p>
+                These are approximate wellness estimates based
+                on the information you provide.
+              </p>
+            </div>
+
+          </div>
+
+          <div
+            class="goal-grid"
+            id="profileGoals"
+          >
+
+            <div class="goal-card">
+              <span>Estimated Calories</span>
+              <strong id="profileGoalCalories">—</strong>
+            </div>
+
+            <div class="goal-card">
+              <span>Protein</span>
+              <strong>
+                <span id="profileGoalProtein">—</span> g
+              </strong>
+            </div>
+
+            <div class="goal-card">
+              <span>Carbohydrates</span>
+              <strong>
+                <span id="profileGoalCarbs">—</span> g
+              </strong>
+            </div>
+
+            <div class="goal-card">
+              <span>Fat</span>
+              <strong>
+                <span id="profileGoalFat">—</span> g
+              </strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           NUTRITION
+           ================================================= -->
+
+      <section
+        class="page"
+        id="page-nutrition"
+      >
+
+        <div class="nutrition-summary">
+
+          <div class="nutrition-card">
+
+            <h4>Calories IN</h4>
+
+            <strong id="nutritionCalories">
+              0
+            </strong>
+
+            <span> kcal</span>
+
+          </div>
+
+          <div class="nutrition-card">
+
+            <h4>Protein</h4>
+
+            <strong id="nutritionProtein">
+              0
+            </strong>
+
+            <span> g</span>
+
+          </div>
+
+          <div class="nutrition-card">
+
+            <h4>Carbohydrates</h4>
+
+            <strong id="nutritionCarbs">
+              0
+            </strong>
+
+            <span> g</span>
+
+          </div>
+
+          <div class="nutrition-card">
+
+            <h4>Fat</h4>
+
+            <strong id="nutritionFat">
+              0
+            </strong>
+
+            <span> g</span>
+
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Add Food</h2>
+
+              <p>
+                Choose a food, quantity and optional side dish.
+              </p>
+            </div>
+
+          </div>
+
+
+          <form id="nutritionForm">
+
+            <div class="form-grid">
+
+              <div class="form-group">
+
+                <label for="foodSelect">
+                  Main Food
+                </label>
+
+                <select id="foodSelect"></select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="foodQuantity">
+                  Quantity / Servings
+                </label>
+
+                <input
+                  id="foodQuantity"
+                  type="number"
+                  min="0.25"
+                  step="0.25"
+                  value="1"
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="sideSelect">
+                  Side Dish
+                </label>
+
+                <select id="sideSelect"></select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="sideQuantity">
+                  Side Quantity
+                </label>
+
+                <input
+                  id="sideQuantity"
+                  type="number"
+                  min="0"
+                  step="0.25"
+                  value="1"
+                >
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="food-result"
+              id="mealPreview"
+              style="margin-top:18px;"
+            >
+              Select a food to calculate nutrition.
+            </div>
+
+
+            <div class="button-row">
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+              >
+                Add Meal
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Today's Meals</h2>
+
+              <p>
+                Food recorded for the current day.
+              </p>
+            </div>
+
+            <button
+              class="btn btn-secondary"
+              id="clearMealsButton"
+              type="button"
+            >
+              Clear Today
+            </button>
+
+          </div>
+
+          <div
+            class="meal-list"
+            id="mealList"
+          >
+            <div class="empty-state">
+              No meals recorded today.
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           ACTIVITY
+           ================================================= -->
+
+      <section
+        class="page"
+        id="page-activity"
+      >
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Activity Tracker</h2>
+
+              <p>
+                Record activity and estimate calories OUT.
+              </p>
+            </div>
+
+          </div>
+
+
+          <form id="activityForm">
+
+            <div class="form-grid">
+
+              <div class="form-group">
+
+                <label for="activityType">
+                  Activity
+                </label>
+
+                <select id="activityType">
+
+                  <option value="walking">
+                    Walking
+                  </option>
+
+                  <option value="running">
+                    Running
+                  </option>
+
+                  <option value="cycling">
+                    Cycling
+                  </option>
+
+                  <option value="calisthenics">
+                    Calisthenics
+                  </option>
+
+                  <option value="sports">
+                    Sports
+                  </option>
+
+                  <option value="other">
+                    Other
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="activityMinutes">
+                  Duration (minutes)
+                </label>
+
+                <input
+                  id="activityMinutes"
+                  type="number"
+                  min="1"
+                  max="1000"
+                  placeholder="Example: 30"
+                >
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="food-result"
+              id="activityPreview"
+              style="margin-top:18px;"
+            >
+              Enter activity duration to estimate calories.
+            </div>
+
+
+            <div class="button-row">
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+              >
+                Add Activity
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Today's Activity</h2>
+
+              <p>
+                Activity recorded today.
+              </p>
+            </div>
+
+            <button
+              class="btn btn-secondary"
+              id="clearActivitiesButton"
+              type="button"
+            >
+              Clear Today
+            </button>
+
+          </div>
+
+          <div
+            class="meal-list"
+            id="activityList"
+          >
+            <div class="empty-state">
+              No activity recorded today.
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           MEDICINE
+           ================================================= -->
+
+      <section
+        class="page"
+        id="page-medicine"
+      >
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Medicine Reminder</h2>
+
+              <p>
+                Set reminders for medicines prescribed to you.
+                HealthPulse does not prescribe or change dosage.
+              </p>
+            </div>
+
+          </div>
+
+
+          <form id="reminderForm">
+
+            <div class="form-grid">
+
+              <div class="form-group">
+
+                <label for="medicineName">
+                  Medicine Name
+                </label>
+
+                <input
+                  id="medicineName"
+                  type="text"
+                  placeholder="Medicine name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="medicineDosage">
+                  Dosage / Instructions
+                </label>
+
+                <input
+                  id="medicineDosage"
+                  type="text"
+                  placeholder="As prescribed"
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="medicineDate">
+                  Date
+                </label>
+
+                <input
+                  id="medicineDate"
+                  type="date"
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="medicineTime">
+                  Time
+                </label>
+
+                <input
+                  id="medicineTime"
+                  type="time"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="medicineRepeat">
+                  Repeat
+                </label>
+
+                <select id="medicineRepeat">
+
+                  <option value="once">
+                    Once
+                  </option>
+
+                  <option value="daily">
+                    Daily
+                  </option>
+
+                  <option value="selected">
+                    Selected Days
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="graceMinutes">
+                  Reminder Grace Period
+                </label>
+
+                <input
+                  id="graceMinutes"
+                  type="number"
+                  min="1"
+                  max="1440"
+                  value="30"
+                >
+
+              </div>
+
+
+              <div
+                class="form-group full"
+                id="selectedDaysGroup"
+              >
+
+                <label>
+                  Select Days
+                </label>
+
+                <div class="checkbox-grid">
+
+                  <label class="checkbox-row">
+                    <input
+                      type="checkbox"
+                      name="medicineDay"
+                      value="1"
+                    >
+                    Monday
+                  </label>
+
+                  <label class="checkbox-row">
+                    <input
+                      type="checkbox"
+                      name="medicineDay"
+                      value="2"
+                    >
+                    Tuesday
+                  </label>
+
+                  <label class="checkbox-row">
+                    <input
+                      type="checkbox"
+                      name="medicineDay"
+                      value="3"
+                    >
+                    Wednesday
+                  </label>
+
+                  <label class="checkbox-row">
+                    <input
+                      type="checkbox"
+                      name="medicineDay"
+                      value="4"
+                    >
+                    Thursday
+                  </label>
+
+                  <label class="checkbox-row">
+                    <input
+                      type="checkbox"
+                      name="medicineDay"
+                      value="5"
+                    >
+                    Friday
+                  </label>
+
+                  <label class="checkbox-row">
+                    <input
+                      type="checkbox"
+                      name="medicineDay"
+                      value="6"
+                    >
+                    Saturday
+                  </label>
+
+                  <label class="checkbox-row">
+                    <input
+                      type="checkbox"
+                      name="medicineDay"
+                      value="0"
+                    >
+                    Sunday
+                  </label>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="button-row">
+
+              <button
+                class="btn btn-primary"
+                type="submit"
+              >
+                Create Reminder
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Your Reminders</h2>
+            </div>
+
+          </div>
+
+          <div
+            class="reminder-list"
+            id="reminderList"
+          >
+            <div class="empty-state">
+              No reminders created.
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           HEALTH HISTORY
+           ================================================= -->
+
+      <section
+        class="page"
+        id="page-history"
+      >
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Record Health Measurement</h2>
+
+              <p>
+                Store readings that you want to monitor over time.
+              </p>
+            </div>
+
+          </div>
+
+
+          <form id="measurementForm">
+
+            <div class="form-grid">
+
+              <div class="form-group">
+
+                <label for="measurementType">
+                  Measurement
+                </label>
+
+                <select id="measurementType">
+
+                  <option value="weight">
+                    Weight
+                  </option>
+
+                  <option value="heart_rate">
+                    Heart Rate
+                  </option>
+
+                  <option value="blood_pressure_systolic">
+                    Blood Pressure - Systolic
+                  </option>
+
+                  <option value="blood_pressure_diastolic">
+                    Blood Pressure - Diastolic
+                  </option>
+
+                  <option value="blood_glucose">
+                    Blood Glucose
+                  </option>
+
+                  <option value="temperature">
+                    Temperature
+                  </option>
+
+                  <option value="spo2">
+                    SpO₂
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="measurementValue">
+                  Value
+                </label>
+
+                <input
+                  id="measurementValue"
+                  type="number"
+                  step="0.1"
+                  placeholder="Enter value"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="measurementUnit">
+                  Unit
+                </label>
+
+                <input
+                  id="measurementUnit"
+                  type="text"
+                  placeholder="kg, bpm, mmHg, °C..."
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="measurementNote">
+                  Note
+                </label>
+
+                <input
+                  id="measurementNote"
+                  type="text"
+                  placeholder="Optional note"
+                >
+
+              </div>
+
+            </div>
+
+
+            <div class="button-row">
+
+              <button
+                class="btn btn-primary"
+                type="submit"
+              >
+                Save Measurement
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Health History</h2>
+
+              <p>
+                Measurements stored in your HealthPulse account.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="table-wrapper">
+
+            <table>
+
+              <thead>
+
+                <tr>
+                  <th>Date</th>
+                  <th>Measurement</th>
+                  <th>Value</th>
+                  <th>Unit</th>
+                  <th>Note</th>
+                </tr>
+
+              </thead>
+
+              <tbody id="historyTableBody">
+
+                <tr>
+                  <td colspan="5">
+                    No measurements yet.
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           DOCTOR ACCESS
+           ================================================= -->
+
+      <section
+        class="page"
+        id="page-doctor"
+      >
+
+        <div class="doctor-access">
+
+          <h3>
+            Doctor Monitoring Access
+          </h3>
+
+          <p>
+            A doctor can only view your HealthPulse information
+            after you approve an access request.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Request Doctor Access</h2>
+
+              <p>
+                Use this section to simulate a doctor requesting
+                access to your profile.
+              </p>
+            </div>
+
+          </div>
+
+
+          <form id="doctorRequestForm">
+
+            <div class="form-grid">
+
+              <div class="form-group">
+
+                <label for="doctorName">
+                  Doctor Name
+                </label>
+
+                <input
+                  id="doctorName"
+                  type="text"
+                  placeholder="Dr. Example"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="doctorId">
+                  Doctor ID
+                </label>
+
+                <input
+                  id="doctorId"
+                  type="text"
+                  placeholder="Optional"
+                >
+
+              </div>
+
+            </div>
+
+
+            <div class="button-row">
+
+              <button
+                class="btn btn-primary"
+                type="submit"
+              >
+                Send Access Request
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Access Requests</h2>
+
+              <p>
+                Approve or deny requests.
+              </p>
+            </div>
+
+          </div>
+
+          <div
+            id="accessRequestList"
+            class="meal-list"
+          >
+            <div class="empty-state">
+              No doctor requests.
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-header">
+
+            <div>
+              <h2>Doctor Dashboard</h2>
+
+              <p>
+                Open the separate doctor monitoring dashboard.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="button-row">
+
+            <a
+              class="btn btn-primary"
+              href="/doctor.html"
+              target="_blank"
+            >
+              Open Doctor Dashboard
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+  id="toastContainer"
+  class="toast-container"
+></div>
+
+
+<!-- SCRIPTS -->
+
+<script src="foods.js"></script>
+<script src="script.js"></script>
+<script src="navigation.js"></script>
+
+</body>
+</html>

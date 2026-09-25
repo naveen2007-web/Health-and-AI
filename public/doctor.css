@@ -1,0 +1,416 @@
+/* =========================================================
+   HEALTHPULSE DOCTOR DASHBOARD CSS
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f7fb;
+  color: #172033;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* HEADER */
+
+.doctor-header {
+  height: 76px;
+  background: white;
+  border-bottom: 1px solid #e3e8f1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 35px;
+}
+
+.doctor-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.doctor-logo {
+  width: 43px;
+  height: 43px;
+  border-radius: 12px;
+  background: #315bea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.doctor-brand h1 {
+  font-size: 19px;
+}
+
+.doctor-brand span {
+  color: #64748b;
+  font-size: 11px;
+}
+
+.back-button {
+  color: #315bea;
+  background: #eef2ff;
+  padding: 9px 13px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* MAIN */
+
+.doctor-main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 28px;
+}
+
+/* CARD */
+
+.card {
+  background: white;
+  border: 1px solid #e3e8f1;
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 5px 20px rgba(30, 50, 90, 0.04);
+}
+
+.card h2 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.card p {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* SEARCH */
+
+.doctor-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.search-row {
+  display: flex;
+  gap: 8px;
+  min-width: 400px;
+}
+
+.search-row input {
+  flex: 1;
+  border: 1px solid #d8e0ec;
+  border-radius: 9px;
+  padding: 11px;
+  outline: none;
+}
+
+.search-row input:focus {
+  border-color: #315bea;
+  box-shadow: 0 0 0 3px rgba(49, 91, 234, 0.1);
+}
+
+.doctor-button {
+  border: 0;
+  border-radius: 9px;
+  padding: 11px 15px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.doctor-button.primary {
+  background: #315bea;
+  color: white;
+}
+
+.doctor-button.primary:hover {
+  background: #2649c7;
+}
+
+.doctor-status {
+  position: absolute;
+  margin-top: 70px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+/* EMPTY */
+
+.empty-doctor {
+  text-align: center;
+  padding: 65px 25px;
+}
+
+.empty-icon {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.empty-doctor h2 {
+  margin-bottom: 5px;
+}
+
+/* PATIENT BANNER */
+
+.patient-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.small-label {
+  color: #64748b;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.patient-banner h2 {
+  font-size: 25px;
+  margin-top: 4px;
+}
+
+.patient-banner p {
+  color: #64748b;
+}
+
+.patient-id-box {
+  background: #eef2ff;
+  padding: 13px 17px;
+  border-radius: 11px;
+  text-align: right;
+}
+
+.patient-id-box span {
+  display: block;
+  color: #64748b;
+  font-size: 9px;
+}
+
+.patient-id-box strong {
+  display: block;
+  color: #315bea;
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+/* STATS */
+
+.doctor-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+}
+
+.doctor-stat span {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+
+.doctor-stat strong {
+  font-size: 20px;
+}
+
+/* HEADINGS */
+
+.card-heading {
+  margin-bottom: 18px;
+}
+
+.card-heading h2 {
+  margin-bottom: 4px;
+}
+
+/* MEASUREMENTS */
+
+.measurement-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.reading {
+  background: #f8fafc;
+  border: 1px solid #e3e8f1;
+  border-radius: 11px;
+  padding: 15px;
+}
+
+.reading span {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+
+.reading strong {
+  display: block;
+  font-size: 20px;
+}
+
+.reading small {
+  display: block;
+  color: #7a8799;
+  font-size: 9px;
+  margin-top: 5px;
+}
+
+/* LIST */
+
+.doctor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.doctor-list .list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #e3e8f1;
+  border-radius: 10px;
+  padding: 13px;
+}
+
+.list-item strong {
+  display: block;
+  font-size: 13px;
+}
+
+.list-item small {
+  color: #64748b;
+  font-size: 10px;
+}
+
+/* STATUS */
+
+.status {
+  padding: 5px 9px;
+  border-radius: 20px;
+  background: #eef2f7;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* INFO */
+
+.patient-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.info-item {
+  background: #f8fafc;
+  border: 1px solid #e3e8f1;
+  border-radius: 10px;
+  padding: 13px;
+}
+
+.info-item span {
+  display: block;
+  color: #64748b;
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+
+.info-item strong {
+  font-size: 12px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .doctor-search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-row {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .doctor-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .measurement-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .patient-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .doctor-header {
+    padding: 0 15px;
+  }
+
+  .doctor-brand h1 {
+    font-size: 16px;
+  }
+
+  .back-button {
+    font-size: 10px;
+  }
+
+  .doctor-main {
+    padding: 15px;
+  }
+
+  .search-row {
+    flex-direction: column;
+  }
+
+  .doctor-stats,
+  .measurement-grid,
+  .patient-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .patient-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .patient-id-box {
+    width: 100%;
+    text-align: left;
+  }
+
+}
